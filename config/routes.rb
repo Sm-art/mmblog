@@ -1,6 +1,7 @@
 Blog::Application.routes.draw do
-  resources :categories
-
+  resources :categories do
+    resources :posts
+  end
   #resources :posts
 
   get "home/index"
