@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-
+  #dopisane z netu bo wystepowa³ b³¹d
   # POST /posts
   # POST /posts.json
   def create
@@ -54,6 +54,11 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+
+  def new
+    @post = Post.new(params[:post])
   end
 
   # PUT /posts/1
@@ -85,6 +90,6 @@ class PostsController < ApplicationController
   end
 
   def find_category
-    @current_category = Categoty.where("id=?",psrsmd[:category_id]).first
+    @current_category = Category.where("id=?",params[:category_id]).first
   end
 end

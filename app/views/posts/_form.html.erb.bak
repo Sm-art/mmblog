@@ -1,5 +1,5 @@
 <% @post.tags.build %>
-<%= form_for([@current_category, @post]) do |post_form| %>
+<%= form_for([@current_category, @post]) do |f| %>
   <% if @post.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
