@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
+
   def index
-    @categories = Category.all
   end
+
+	def test
+		render :json => categories
+	end
 end

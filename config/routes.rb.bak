@@ -6,7 +6,6 @@ Blog::Application.routes.draw do
     end 
   end
 
-  match "/test" => "home#test"
   #resources :posts
 
   #get "home/index"
