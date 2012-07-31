@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
 	 def categories
 		@categories ||= Category.all
 	end
+		helper_method :tags
+
+	 def tags
+		@tags ||= Tag.all
+	end
 end

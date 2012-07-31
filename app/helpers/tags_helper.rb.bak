@@ -1,0 +1,5 @@
+module CategoriesHelper
+  def tags
+		@tags = Tag.all
+	end
+end

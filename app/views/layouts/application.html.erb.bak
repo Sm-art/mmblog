@@ -8,12 +8,46 @@
 </head>
 
 <body style="background: #EEEEEE;">
+  <div class="containder">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <form class="navbar-search pull-left">
+            <input type="text" class="search-query" placeholder="Search">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span8">
+	<%= yield %>
+      </div>
+      <div class="span4">
+		<ul class="nav nav-list">
+		  <li class="nav-header">
+			KATEGORIE
+		  </li>
+			<% categories.each do |c|  %>
+				<li><%= link_to c.name, category_path(c) %></li>
+			<% end %>
+		  <li class="nav-header">
+			TAGI
+		  </li>
+			<% categories.each do |c|  %>
+				<li><%= link_to c.name, category_path(c) %></li>
+			<% end %>
+		</ul>
 
-<% @categories.each do |c|  %>
-  <li><%= link_to c.name, category_path(c) %></li>
-<% end %>
-
-<%= yield %>
-
+	    <div class="row">
+          <% categories.each do |c|  %>
+            <li><%= link_to c.name, category_path(c) %></li>
+          <% end %>
+	    </div>
+	  	<div class="row">
+	      Tagi
+	    </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
