@@ -27,5 +27,5 @@
 <%= render "comments/form" %>
  
  
-<%= link_to 'Edit Post', edit_category_post_path(@current_category, @post) %> |
+<%= link_to 'Edit Post', edit_category_post_path(@post) %> |
 <%= link_to 'Back to Posts', category_posts_path(@current_category) %> |

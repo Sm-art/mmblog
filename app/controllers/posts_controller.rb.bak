@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-		params[:category_id] = @current_category.id
+		params[:post][:category_id] = @current_category.id
     @post = Post.new(params[:post])
 
     respond_to do |format|

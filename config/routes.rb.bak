@@ -1,10 +1,9 @@
 Blog::Application.routes.draw do
+  get "search/index"
+
   resources :categories do
     resources :posts do
-      resources :comments
-			resources :tags do
-			  resources :posts
-			end
+      resources :comments 
     end 
   end
   
@@ -12,7 +11,7 @@ Blog::Application.routes.draw do
   match "/test" => "home#test"
 
   
-  #resources :tags do
+  resources :tags
   #  resources :posts
   #end
   # bez dodania tego nie dzialalo mi dodawanie postów... ale dlaczego?????? powinno dzialac skoro dodwalalam post w wybrannej kategorii?

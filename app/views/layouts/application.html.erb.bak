@@ -13,12 +13,12 @@
       <div class="navbar-inner">
         <div class="container">
 		  <a href="<%= root_path %>" class="brand">Super blog</a>
-          <form class="navbar-search pull-left">
-            <input type="text" class="search-query" placeholder="Search">
+          <form method="get" action="<%= search_path %>" class="navbar-search pull-left">
+            <input type="text" class="search-query" name="search_query" placeholder="Search">
 			<button class="btn btn-primary">Szukaj</button>
           </form>
 
-		<ul class="nav">
+		<ul class="nav pull-right">
 		  <li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				  Options

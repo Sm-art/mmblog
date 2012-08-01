@@ -1,4 +1,7 @@
 Blog::Application.routes.draw do
+  
+	resources :search, :only => [:index]
+
   resources :categories do
     resources :posts do
       resources :comments 
