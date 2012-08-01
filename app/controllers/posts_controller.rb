@@ -1,12 +1,18 @@
 class PostsController < ApplicationController
   before_filter :find_category
+
+#	before_filter :find_tag
   # GET /posts
   # GET /posts.json
-  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+#  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
  
   def index
-    @posts = @current_category.posts.all
-
+#	  if(!@current_category)
+      @posts = @current_category.posts.all
+#		end
+#   if(!@current_tag)
+#      @posts = @current_tag.posts.all
+#   end 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
@@ -43,11 +49,12 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+		params[:post][:category_id] = @current_category.id
     @post = Post.new(params[:post])
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to  category_post_url(@current_category, @post), notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -91,5 +98,8 @@ class PostsController < ApplicationController
 
   def find_category
     @current_category = Category.where("id=?",params[:category_id]).first
+  end
+	def find_tag
+    @current_tag = Tag.where("id=?",params[:tag_id]).first
   end
 end

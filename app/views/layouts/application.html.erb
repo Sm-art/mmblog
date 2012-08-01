@@ -7,20 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body style="background: #EEEEEE;">
-  <div class="containder">
+<body>
+  
     <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
+		  <a href="<%= root_path %>" class="brand">Super blog</a>
           <form class="navbar-search pull-left">
             <input type="text" class="search-query" placeholder="Search">
+			<button class="btn btn-primary">Szukaj</button>
           </form>
+
+		<ul class="nav pull-right">
+		  <li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				  Options
+				  <b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+			  <li> Login  </li>
+			</ul>
+		  </li>
+		</ul>
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="span8">
-	<%= yield %>
+		<%= yield %>
       </div>
       <div class="span4">
 		<ul class="nav nav-list">
@@ -37,17 +52,7 @@
 				<li><%= link_to c.name, tag_path(c) %></li>
 			<% end %>
 		</ul>
-
-	    <div class="row">
-          <% categories.each do |c|  %>
-            <li><%= link_to c.name, category_path(c) %></li>
-          <% end %>
-	    </div>
-	  	<div class="row">
-	      Tagi
-	    </div>
       </div>
     </div>
-  </div>
 </body>
 </html>

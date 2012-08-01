@@ -1,6 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<p>Helllllllllllo!!!!!!!!!!</p>
-<%#= link_to "New category", new_category_path %>
+<div class="page-header"> 
+  <h1>Witaj na super blogu</h1>
+</div>
 
-<% categories %>
+<% @posts.each do |post| %>
+  <div class="list-item">
+	<h3><%= post.title %></h3>
+	<p>
+		<%= post.content[1..50] + "..." %>
+		<%= link_to "wiecej", category_post_path(post.category_id, post.id) %>
+	</p>
+  </div>
+<% end %>
+

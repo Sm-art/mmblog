@@ -2,11 +2,20 @@ Blog::Application.routes.draw do
   resources :categories do
     resources :posts do
       resources :comments
-			resources :tags
+			resources :tags do
+			  resources :posts
+			end
     end 
   end
+  
 
-  #resources :posts
+  match "/test" => "home#test"
+
+  
+  #resources :tags do
+  #  resources :posts
+  #end
+  # bez dodania tego nie dzialalo mi dodawanie postów... ale dlaczego?????? powinno dzialac skoro dodwalalam post w wybrannej kategorii?
 
   #get "home/index"
   # The priority is based upon order of creation:
