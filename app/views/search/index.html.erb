@@ -2,14 +2,7 @@
 <p>Find me in app/views/search/index.html.erb</p>
 
 <% @search_results.each do |post| %>
-  <div class="list-item">
-	<h3><%= post.title %></h3>
-	<p>
-		<%= post.content[1..50] + "..." %>
-		<%= link_to "wiecej", category_post_path(post.category_id, post.id) %>
-	</p>
-  </div>
-  <hr />
+  <%= render :partial => "posts/post_entry", :locals => { :post => post }  %>
 <% end %>
 
 <%= will_paginate @search_results %>

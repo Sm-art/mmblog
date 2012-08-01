@@ -3,6 +3,7 @@
 </div>
 
 <% @posts.each do |post| %>
+  <%= render :partial => "posts/post_entry", :locals => { :post => post }  %>
   <div class="list-item">
 	<h3><%= post.title %></h3>
 	<p>
@@ -10,5 +11,6 @@
 		<%= link_to "wiecej", category_post_path(post.category_id, post.id) %>
 	</p>
   </div>
+  <hr />
 <% end %>
 
